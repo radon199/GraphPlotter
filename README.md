@@ -56,28 +56,30 @@ Quick Start
 ```
 	PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "GraphPlotter" });
 ```
-- In a class that you want to debug, create class fields for `FGp_Graph` and `FGp_GraphPlotter`
+- In a class that you want to debug, include the classes and create the class fields for `FGp_Graph` and `FGp_GraphPlotter`
 ```
 #include "Graph.h"
 #include "GraphPlotter.h"
 ```
 ```
 private:
- FGp_Graph MyGraph; 
+ FGp_Graph MyGraphA;
+ FGp_Graph MyGraphB;
+ FGp_Graph MyGraphC;
  FGp_GraphPlotter MyGraphPlotter;
 ```
 - In class constructor initialize `FGp_Graph` instance
 ```
-  FpsGraph.Title = "FPS"; 
-  FpsGraph.BgColor = FGp_Color::BgYellow; 
-  FpsGraph.Range = FGp_Range(0, 120.f); 
-  FpsGraph.Position = FVector2D(5.f, 200.f); 
-  FpsGraph.ReferenceLineConfig.Enabled = true; 
-  FpsGraph.ReferenceLineConfig.PositionValue = 60.f;
+  MyGraph.Title = "FPS"; 
+  MyGraph.BgColor = FGp_Color::BgYellow; 
+  MyGraph.Range = FGp_Range(0, 120.f); 
+  MyGraph.Position = FVector2D(5.f, 200.f); 
+  MyGraph.ReferenceLineConfig.Enabled = true; 
+  MyGraph.ReferenceLineConfig.PositionValue = 60.f;
 ```
 - In your class methods, call `<graph_instance>::AddDataPoint(float)` to add a data point(s) to your graph(s).
-- In your debug method, eg. `AActor::DisplayDebug()` call `<graphplotter_instance>::Plot(UCanvas, FGp_Graph)`
-to plot debug data to the screen.
+- In your debug method, eg. `AActor::DisplayDebug()` call `<graphplotter_instance>::Plot(UCanvas, FGp_Graph)` for each graph
+to plot the debug data to the screen.
 - When in game call `DrawDebug` to display the debug information for the active AActor.
 
 Check [Blog Post](https://bartlomiejwolk.wordpress.com/2017/06/29/ue4-graphplotter-module/) to see how _GraphPlotter_ can be added to _Unreal Tournament_.
