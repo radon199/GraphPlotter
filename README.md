@@ -80,7 +80,7 @@ private:
 - In your class methods, call `<graph_instance>::AddDataPoint(float)` to add a data point(s) to your graph(s).
 - In your debug method, eg. `AActor::DisplayDebug()` call `<graphplotter_instance>::Plot(UCanvas, FGp_Graph)` for each graph
 to plot the debug data to the screen.
-- When in game call `DrawDebug` to display the debug information for the active AActor.
+- When in game call `ShowDebug` to display the debug information for the active AActor.
 
 Check [Blog Post](https://bartlomiejwolk.wordpress.com/2017/06/29/ue4-graphplotter-module/) to see how _GraphPlotter_ can be added to _Unreal Tournament_.
 
