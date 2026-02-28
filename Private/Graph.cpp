@@ -3,8 +3,8 @@ Copyright 2017 Bartlomiej Wolk (metroidsnes)
 Licensed under MIT license. See the LICENSE file in the module root folder.
 */
 
-#include "GraphPlotterModule.h"
 #include "Graph.h"
+#include "GraphPlotterModule.h"
 
 const FColor FGp_Color::BgGreen(0, 99, 0, 63);
 const FColor FGp_Color::BgYellow(255, 99, 0, 63);

@@ -15,7 +15,7 @@ DECLARE_DELEGATE_RetVal_OneParam(FColor, FGx_BgColorDelegate, float)
 /*
 Color constants for user convenience.
 */
-static struct GRAPHPLOTTERMODULE_API FGp_Color
+static struct GRAPHPLOTTER_API FGp_Color
 {
 	static const FColor BgGreen;
 	static const FColor BgYellow;
@@ -51,7 +51,7 @@ struct FGp_ReferenceLineConfig
 /*
 Defines a range of max and min values.
 */
-struct GRAPHPLOTTERMODULE_API FGp_Range
+struct GRAPHPLOTTER_API FGp_Range
 {
 	FGp_Range();
 	FGp_Range(float min, float max);
@@ -72,7 +72,7 @@ in the constructor.
 Each frame call `AddDataPoint()` to add new data point to the graph.
 Use `FGp_GraphPlotter::Plot()` to draw its content onto the screen.
 */
-class GRAPHPLOTTERMODULE_API FGp_Graph
+class GRAPHPLOTTER_API FGp_Graph
 {
 public:
 	FGp_Graph();

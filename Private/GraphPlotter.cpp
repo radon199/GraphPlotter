@@ -3,8 +3,8 @@ Copyright 2017 Bartlomiej Wolk (metroidsnes)
 Licensed under MIT license. See the LICENSE file in the module root folder.
 */
 
-#include "GraphPlotterModule.h"
 #include "GraphPlotter.h"
+#include "GraphPlotterModule.h"
 #include "CanvasItem.h"
 #include "Utils.h"
 

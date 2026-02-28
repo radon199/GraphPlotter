@@ -1,11 +1,11 @@
 using UnrealBuildTool;
 
-public class GraphPlotterModule : ModuleRules
+public class GraphPlotter : ModuleRules
 {
-    public GraphPlotterModule(ReadOnlyTargetRules Target) : base(Target)
+    public GraphPlotter(ReadOnlyTargetRules Target) : base(Target)
     {
         MinFilesUsingPrecompiledHeaderOverride = 1;
-        bFasterWithoutUnity = true;
+        bUseUnity = false;
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
         PrivateDependencyModuleNames.AddRange(new string[] { });

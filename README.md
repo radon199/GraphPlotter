@@ -1,5 +1,5 @@
 # GraphPlotter
-Graph plotter debug module for UE4
+Graph plotter debug module for UE5
 
 Use it to plot debug graphs to the screen.
 
@@ -28,12 +28,57 @@ Quick Start
 
 - Clone repository (or extract [zip package](https://github.com/bartlomiejwolk/GraphPlotter/archive/master.zip)) to any location in your project's `Source` folder
 - Add _GraphPlotter_ module to `.uproject` file
+```
+	"Modules": [
+		}
+			"Name": "YourGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		},
+		{
+			"Name": "GraphPlotter",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
+```
 - Add _GraphPlotter_ module to your game project  `.Target.cs` file
+```
+	ExtraModuleNames.AddRange( new string[] { "YourGame", "GraphPlotter" } );
+```
 - Add _GraphPlotter_ module to your game module `.build.cs` file
+```
+	PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "GraphPlotter" });
+```
 - In a class that you want to debug, create class fields for `FGp_Graph` and `FGp_GraphPlotter`
+```
+#include "Graph.h"
+#include "GraphPlotter.h"
+```
+```
+private:
+ FGp_Graph MyGraph; 
+ FGp_GraphPlotter MyGraphPlotter;
+```
 - In class constructor initialize `FGp_Graph` instance
-- In your debug method, eg. `AActor::DisplayDebug()` call `<graph_instance>::AddDataPoint(float)` and `<graphplotter_instance>::Plot(UCanvas, FGp_Graph)`
+```
+  FpsGraph.Title = "FPS"; 
+  FpsGraph.BgColor = FGp_Color::BgYellow; 
+  FpsGraph.Range = FGp_Range(0, 120.f); 
+  FpsGraph.Position = FVector2D(5.f, 200.f); 
+  FpsGraph.ReferenceLineConfig.Enabled = true; 
+  FpsGraph.ReferenceLineConfig.PositionValue = 60.f;
+```
+- In your class methods, call `<graph_instance>::AddDataPoint(float)` to add a data point(s) to your graph(s).
+- In your debug method, eg. `AActor::DisplayDebug()` call `<graphplotter_instance>::Plot(UCanvas, FGp_Graph)`
 to plot debug data to the screen.
+- When in game call `DrawDebug` to display the debug information for the active AActor.
 
 Check [Blog Post](https://bartlomiejwolk.wordpress.com/2017/06/29/ue4-graphplotter-module/) to see how _GraphPlotter_ can be added to _Unreal Tournament_.
 

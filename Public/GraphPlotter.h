@@ -30,7 +30,7 @@ Graph consists of a header (title and current debug value) and the plotting area
 -99					-
 ---------------------
  */
-class GRAPHPLOTTERMODULE_API FGp_GraphPlotter
+class GRAPHPLOTTER_API FGp_GraphPlotter
 {
 public:
 	FGp_GraphPlotter();
